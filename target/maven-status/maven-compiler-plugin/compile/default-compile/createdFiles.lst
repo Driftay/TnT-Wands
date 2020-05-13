@@ -3,9 +3,9 @@ me\driftay\tntwand\hooks\HookManager.class
 me\driftay\tntwand\hooks\impl\WorldGuardHook.class
 me\driftay\tntwand\commands\CmdTntWand.class
 me\driftay\tntwand\hooks\impl\factions\FactionUUIDHook.class
-me\driftay\tntwand\SavageTnTWand.class
 me\driftay\tntwand\utils\Logger.class
 me\driftay\tntwand\utils\Utils.class
+me\driftay\tntwand\TNTWand.class
 me\driftay\tntwand\hooks\PluginHook.class
 me\driftay\tntwand\hooks\impl\FactionHook.class
 me\driftay\tntwand\events\InteractEvent.class
