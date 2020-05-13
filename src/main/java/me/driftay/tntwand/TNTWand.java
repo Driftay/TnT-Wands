@@ -18,9 +18,9 @@ import java.util.List;
 
 import static me.driftay.tntwand.utils.Utils.color;
 
-public class SavageTnTWand extends JavaPlugin {
+public class TNTWand extends JavaPlugin {
 
-    public static SavageTnTWand instance;
+    public static TNTWand instance;
 
     public void onEnable() {
         instance = this;

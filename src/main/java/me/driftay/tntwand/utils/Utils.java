@@ -1,6 +1,6 @@
 package me.driftay.tntwand.utils;
 
-import me.driftay.tntwand.SavageTnTWand;
+import me.driftay.tntwand.TNTWand;
 import org.bukkit.ChatColor;
 import org.bukkit.configuration.file.FileConfiguration;
 
@@ -9,7 +9,7 @@ import java.util.List;
 
 public class Utils {
 
-    public static FileConfiguration config = SavageTnTWand.instance.getConfig();
+    public static FileConfiguration config = TNTWand.instance.getConfig();
 
     public static String color(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);

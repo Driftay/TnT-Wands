@@ -34,7 +34,8 @@ public class InteractEvent implements Listener {
         ItemStack itemInHand = player.getItemInHand();
         ItemMeta im = itemInHand.getItemMeta();
         String displayname = color(Utils.config.getString("Item.Display-Name"));
-        String successMessage = color(Utils.config.getString("SavageTnTWand.Success-Message"));
+        String successMessage = color(Utils.config.getString("TnTWand.Success-Message"));
+        String failedMessage = color(config.getString("TnTWand.To-Much-In-Bank"));
         FPlayer fplayer = FPlayers.getInstance().getByPlayer(event.getPlayer());
         Faction otherFaction = Board.getInstance().getFactionAt(new FLocation(block.getLocation()));
 
@@ -74,6 +75,12 @@ public class InteractEvent implements Listener {
                     }
                     if (tntcount > 0) {
                         successMessage = successMessage.replace("%amount%", Integer.toString(tntcount));
+
+                        if(tntcount + faction.getTnt() > faction.getTntBankLimit()){
+                            player.sendMessage(failedMessage);
+                            return;
+                        }
+
                         faction.addTnt(tntcount);
                         player.sendMessage(successMessage);
                     }

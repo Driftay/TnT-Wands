@@ -1,12 +1,12 @@
 package me.driftay.tntwand.utils;
 
-import me.driftay.tntwand.SavageTnTWand;
+import me.driftay.tntwand.TNTWand;
 import org.bukkit.ChatColor;
 
 public class Logger {
 
     public static void print(String message, PrefixType type) {
-        SavageTnTWand.instance.getServer().getConsoleSender().sendMessage(type.getPrefix() + message);
+        TNTWand.instance.getServer().getConsoleSender().sendMessage(type.getPrefix() + message);
     }
 
     public enum PrefixType {

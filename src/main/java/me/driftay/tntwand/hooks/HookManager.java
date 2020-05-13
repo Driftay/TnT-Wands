@@ -1,7 +1,7 @@
 package me.driftay.tntwand.hooks;
 
 
-import me.driftay.tntwand.SavageTnTWand;
+import me.driftay.tntwand.TNTWand;
 import me.driftay.tntwand.utils.Logger;
 
 import java.util.HashMap;
@@ -15,7 +15,7 @@ public class HookManager {
     public HookManager(List<PluginHook<?>> list) {
         for (PluginHook<?> hook : list) {
             pluginMap.put(hook.getName(), (PluginHook<?>) hook.setup());
-            if (SavageTnTWand.instance.getServer().getPluginManager().getPlugin(hook.getName()) != null) {
+            if (TNTWand.instance.getServer().getPluginManager().getPlugin(hook.getName()) != null) {
                 Logger.print("successfully hooked " + hook.getName(), Logger.PrefixType.DEFAULT);
             } else {
                 Logger.print("could not hook " + hook.getName(), Logger.PrefixType.WARNING);

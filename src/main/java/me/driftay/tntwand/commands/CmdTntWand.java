@@ -1,6 +1,6 @@
 package me.driftay.tntwand.commands;
 
-import me.driftay.tntwand.SavageTnTWand;
+import me.driftay.tntwand.TNTWand;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.command.Command;
@@ -16,30 +16,30 @@ public class CmdTntWand implements CommandExecutor {
 
     public boolean onCommand(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 1 && args[0].equalsIgnoreCase("reload")) {
-            if (sender.hasPermission(config.getString("SavageTnTWand.Reload-Permission"))) {
-                SavageTnTWand.instance.reloadConfig();
-                sender.sendMessage(color(config.getString("SavageTnTWand.Reloaded-Message")));
+            if (sender.hasPermission(config.getString("TnTWand.Reload-Permission"))) {
+                TNTWand.instance.reloadConfig();
+                sender.sendMessage(color(config.getString("TnTWand.Reloaded-Message")));
             } else {
-                sender.sendMessage(color(config.getString("SavageTnTWand.No-Perms")));
+                sender.sendMessage(color(config.getString("TnTWand.No-Perms")));
             }
         }
         if (args.length == 2 && args[0].equalsIgnoreCase("give")) {
-            if (!sender.hasPermission(color(config.getString("SavageTnTWand.Give-Permission")))) {
-                sender.sendMessage(color(config.getString("SavageTnTWand.No-Perms")));
+            if (!sender.hasPermission(color(config.getString("TnTWand.Give-Permission")))) {
+                sender.sendMessage(color(config.getString("TnTWand.No-Perms")));
                 return true;
             }
             if (Bukkit.getPlayer(args[1]) == null || !Bukkit.getPlayer(args[1]).isOnline()) {
-                sender.sendMessage(color(config.getString("SavageTnTWand.Not-Online")).replace("%player%", args[1]));
+                sender.sendMessage(color(config.getString("TnTWand.Not-Online")).replace("%player%", args[1]));
                 return true;
             }
             if (Bukkit.getServer().getPlayer(args[1]).isOnline()) {
-                ItemStack tntwand = SavageTnTWand.instance.createItem(Material.GOLD_HOE, 1, (short) 0, color(config.getString("Item.Display-Name")), color(config.getStringList("Item.lore")));
+                ItemStack tntwand = TNTWand.instance.createItem(Material.GOLD_HOE, 1, (short) 0, color(config.getString("Item.Display-Name")), color(config.getStringList("Item.lore")));
                 Bukkit.getServer().getPlayer(args[1]).getInventory().addItem(tntwand);
-                Bukkit.getServer().getPlayer(args[1]).sendMessage(color(config.getString("SavageTnTWand.Received-Messaged")));
+                Bukkit.getServer().getPlayer(args[1]).sendMessage(color(config.getString("TnTWand.Received-Messaged")));
                 return true;
             }
         }
-        if (args.length == 0 && sender.hasPermission(config.getString("SavageTnTWand.Give-Permission"))) {
+        if (args.length == 0 && sender.hasPermission(config.getString("TnTWand.Give-Permission"))) {
             sender.sendMessage(color(""));
             sender.sendMessage(color("&b&m&l----&r&8&m&l[--- &4TNT &fWands &r&8&m&l---]&b&m&l---"));
             sender.sendMessage(color("&a» /&7tntwand give &a<&7&oplayer&a> - &7Gives a &aTnT Wand &7to given &aplayer"));
